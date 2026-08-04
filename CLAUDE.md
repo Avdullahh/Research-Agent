@@ -17,7 +17,7 @@ python -m pip install -r requirements.txt
 python -m playwright install chromium        # ~115MB, one time, to %LOCALAPPDATA%\ms-playwright
 ```
 
-**Run the research workflow:** read `workflows/research_report.md` and follow it. Entry point is a filled-in copy of `workflows/brief_template.md`.
+**Run the research workflow:** the user names a topic; read `workflows/intake_interview.md` and follow it to produce a confirmed brief, then read `workflows/research_report.md` and follow it from Stage 1. A hand-filled copy of `workflows/brief_template.md` is still accepted as an entry point — that route starts at Stage 0.
 
 ```bash
 python tools/fetch_sources.py --run-id <run_id>              # stage 2; --force to re-fetch

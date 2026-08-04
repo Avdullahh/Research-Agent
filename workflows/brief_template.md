@@ -1,6 +1,11 @@
 # Research Brief
 
-Copy this file to `.tmp/brief.md`, fill it in, then tell me: **"Run the research workflow on `.tmp/brief.md`"**.
+**You don't have to fill this in.** Just name a topic and I'll run
+`workflows/intake_interview.md` — I ask what I can't infer, propose the rest, and you
+confirm the finished brief. This file is the field reference that interview is built from.
+
+Prefer to do it by hand? Copy this file to `.tmp/brief.md`, fill it in, then tell me:
+**"Run the research workflow on `.tmp/brief.md`"**. That path still works.
 
 Everything below the `---` is the machine-read part. Fill in the YAML block; leave optional
 fields blank and I'll use the stated default. The `questions` list is the single most
