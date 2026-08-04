@@ -211,7 +211,8 @@ the actual printed path to the user rather than assuming it.
 | `market` | Industry, competitive, commercial, trend research | Modern sans, data-forward, accent color |
 | `technical` | Engineering, security, infrastructure, tooling | Monospace accents, code-friendly |
 
-Pick from the topic, and **tell the user which you chose and why** at stage 0. If a topic
+Pick from the topic, and **tell the user which you chose and why** at stage 0, or at Stage B
+of `intake_interview.md` when the brief came from the interview. If a topic
 straddles two (e.g. "security compliance"), pick by what the *reader* is doing with it —
 the brief's `role` decides. A GC reading about security gets `regulatory`; an SRE reading
 about the same rules gets `technical`.

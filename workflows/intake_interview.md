@@ -32,6 +32,14 @@ the same task.
 If the user explicitly says "same setup as last time," ask them to state what they want
 carried over. Their memory of it is a legitimate input; your reading of the archive is not.
 
+## No WebSearch anywhere in this workflow
+
+Not even one orienting search to inform a Stage B proposal. Draft `credibility_rules`,
+`must_include`, and `questions` from the topic as stated and from `brief_template.md` —
+never from a search result. This holds for the entire interview, start to finish, not just
+around fetching. The run's first search happens only after the user approves, at
+`research_report.md` Stage 1.
+
 ## Stage A — Ask what cannot be inferred
 
 Three fields: `topic`, `role`, `home_region`.

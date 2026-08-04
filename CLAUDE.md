@@ -110,7 +110,7 @@ credentials.json, token.json  # Google OAuth (gitignored)
 
 Every research task takes its guidelines fresh from a new brief. Carrying a previous task's credibility rules, region, role lens, or theme into the next one silently corrupts that report — which defeats the entire premise of the workflow.
 
-**After the user approves a report PDF:** move that run's filled-in brief to `used_briefs/<run_id>.md`. Leave the blank `workflows/brief_template.md` in place — it is the reusable sample and never moves. Do not move a brief just because the render succeeded; wait for explicit approval.
+**After the user approves a report PDF:** copy that run's filled-in brief to `used_briefs/<run_id>.md`, keeping the original in place at `.tmp/<run_id>/brief.md` so the run directory stays self-contained. Leave the blank `workflows/brief_template.md` in place — it is the reusable sample and never moves. Do not copy a brief just because the render succeeded; wait for explicit approval.
 
 **Core principle:** Local files are just for processing. Anything I need to see or use lives in cloud services. Everything in `.tmp/` is disposable.
 
