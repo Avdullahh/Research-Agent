@@ -1,0 +1,89 @@
+/* TECHNICAL -- engineering, security, infrastructure, tooling.
+   Monospace structural elements against a sans body. Reads like good
+   documentation: dense, precise, scannable. */
+
+:root {
+  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-head: "Cascadia Mono", Consolas, "Courier New", monospace;
+  --font-mono: "Cascadia Mono", Consolas, "Courier New", monospace;
+
+  --ink: #14181c;
+  --ink-soft: #454d55;
+  --ink-faint: #858e97;
+  --rule: #d9dee3;
+  --rule-strong: #14181c;
+  --paper: #ffffff;
+  --wash: #f6f8fa;
+  --accent: #1f4fa8;
+  --accent-soft: #eaf0fb;
+
+  --size-body: 9.8pt;
+  --leading: 1.55;
+  --size-h1: 24pt;
+  --size-h2: 13pt;
+  --size-h3: 11pt;
+  --radius: 0.8mm;
+  --block-gap: 9mm;
+
+  --tier-a: #1a7f4b;
+  --tier-b: #9a6400;
+  --tier-c: #8a4b6b;
+}
+
+.eyebrow { letter-spacing: 0.16em; }
+.eyebrow::before { content: "// "; color: var(--ink-faint); }
+.cover-rule { height: 2pt; background: var(--accent); }
+
+.cover-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.16;
+}
+
+.cover-meta dt { font-family: var(--font-mono); text-transform: lowercase; letter-spacing: 0.02em; }
+.cover-meta dt::after { content: ":"; }
+
+h2 {
+  font-family: var(--font-head);
+  font-size: var(--size-h2);
+  letter-spacing: -0.02em;
+  border-bottom-width: 1pt;
+}
+h2::before { content: "# "; color: var(--accent); }
+
+.finding h3 { font-family: var(--font-head); letter-spacing: -0.02em; }
+
+.finding-num {
+  font-family: var(--font-mono);
+  color: var(--ink-faint);
+}
+.finding-num::before { content: "["; }
+.finding-num::after { content: "]"; }
+
+.finding { border-bottom-style: dashed; }
+
+.implication {
+  background: var(--accent-soft);
+  border-left-width: 2pt;
+  border-radius: var(--radius);
+}
+.implication-label { font-family: var(--font-mono); letter-spacing: 0.06em; }
+.implication-label::before { content: "> "; }
+
+.tag { font-family: var(--font-mono); border-radius: var(--radius); }
+.cite { border-radius: var(--radius); background: var(--accent-soft); }
+
+.conflict {
+  border-left: 2.5pt solid var(--tier-c);
+  border-radius: var(--radius);
+}
+.conflict-claim { font-family: var(--font-head); font-size: 10pt; letter-spacing: -0.015em; }
+.assessment-label { font-family: var(--font-mono); }
+
+.source-title { font-family: var(--font-head); font-size: 9.8pt; letter-spacing: -0.02em; }
+.source-id { border-radius: var(--radius); }
+.source-tier, .source-prox { font-family: var(--font-mono); border-radius: var(--radius); }
+.source-url { color: var(--accent); }
+
+table.excluded th { font-family: var(--font-mono); }

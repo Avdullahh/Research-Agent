@@ -1,0 +1,86 @@
+/* REGULATORY -- law, policy, compliance, government.
+   Formal and high-contrast. Numbered sections and hard rules signal "this is a
+   document of record". Deliberately joyless; that is the register. */
+
+:root {
+  --font-body: "Times New Roman", Times, Georgia, serif;
+  --font-head: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Consolas", "Courier New", monospace;
+
+  --ink: #000000;
+  --ink-soft: #33383d;
+  --ink-faint: #6b7178;
+  --rule: #b8bec5;
+  --rule-strong: #000000;
+  --paper: #ffffff;
+  --wash: #f2f3f5;
+  --accent: #7a0c17;
+  --accent-soft: #f7eeef;
+
+  --size-body: 10pt;
+  --leading: 1.5;
+  --size-h1: 25pt;
+  --size-h2: 12.5pt;
+  --radius: 0;
+  --block-gap: 8mm;
+}
+
+.eyebrow { letter-spacing: 0.3em; font-weight: 700; color: var(--ink); }
+.cover-rule { height: 4pt; }
+
+.cover-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.cover-meta dt { font-weight: 700; color: var(--ink); }
+.cover-meta { border-top-width: 2pt; border-top-color: var(--rule-strong); }
+
+/* Numbered section headings, clause style. */
+h2 {
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: var(--size-h2);
+  border-bottom-width: 2pt;
+  counter-increment: sect;
+}
+h2::before {
+  content: counter(sect) ".  ";
+  color: var(--accent);
+}
+article { counter-reset: sect; }
+
+.finding h3 { font-family: var(--font-head); }
+.finding-num { font-weight: 700; color: var(--accent); }
+.finding-num::after { content: "."; }
+
+.finding {
+  border-bottom-width: 1pt;
+  border-bottom-color: var(--rule);
+}
+
+.implication {
+  background: var(--wash);
+  border-left-width: 4pt;
+  border-left-color: var(--accent);
+  border-top: 0.5pt solid var(--rule);
+  border-bottom: 0.5pt solid var(--rule);
+  border-right: 0.5pt solid var(--rule);
+}
+.implication-label { letter-spacing: 0.18em; }
+
+.tag { border-radius: 0; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.06em; }
+.cite { font-weight: 700; border-width: 0.75pt; }
+
+.conflict { border-width: 1pt; border-color: var(--ink); background: var(--paper); }
+.conflict-claim { font-family: var(--font-head); }
+
+.source-title { font-family: var(--font-head); font-weight: 700; }
+.source-id { background: var(--ink); border-radius: 0; }
+.source-tier { border-width: 0.75pt; font-family: var(--font-head); }
+.jurisdiction { color: var(--accent); font-weight: 700; }
+
+table.excluded th { border-bottom-width: 2pt; }

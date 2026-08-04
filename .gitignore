@@ -1,0 +1,21 @@
+# Secrets & credentials
+.env
+credentials.json
+token.json
+
+# Disposable processing files
+.tmp/
+
+# Generated reports (deliverables, not source)
+output/
+
+# DevSquad runtime state
+.devsquad/logs/
+.devsquad/usage/
+.devsquad/state.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/

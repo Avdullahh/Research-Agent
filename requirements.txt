@@ -1,0 +1,10 @@
+requests>=2.32
+trafilatura>=1.12
+python-dateutil>=2.9
+jinja2>=3.1
+jsonschema>=4.23
+playwright>=1.48
+
+# Verification only -- not imported by any tool. Used to check PDF pagination
+# and footers without needing poppler/pdftoppm (unavailable on this machine).
+pypdf>=5.1

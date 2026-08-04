@@ -1,0 +1,97 @@
+/* MARKET -- industry, competitive, commercial, trend research.
+   Modern sans, generous accent color, data-forward. The one theme allowed to
+   look like a deck: this reader is scanning, not studying. */
+
+:root {
+  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-head: "Segoe UI Semibold", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Cascadia Mono", Consolas, "Courier New", monospace;
+
+  --ink: #0f1720;
+  --ink-soft: #48555f;
+  --ink-faint: #8996a1;
+  --rule: #dfe5ea;
+  --rule-strong: #0f1720;
+  --paper: #ffffff;
+  --wash: #f4f7f9;
+  --accent: #0a6b63;
+  --accent-soft: #e4f2f0;
+
+  --size-body: 10pt;
+  --leading: 1.55;
+  --size-h1: 32pt;
+  --size-h2: 15pt;
+  --size-h3: 12pt;
+  --radius: 1.2mm;
+  --block-gap: 10mm;
+
+  --tier-a: #0a6b63;
+  --tier-b: #9a6400;
+  --tier-c: #6b5b95;
+}
+
+.eyebrow { letter-spacing: 0.2em; color: var(--accent); }
+.cover-rule { height: 3.5pt; background: var(--accent); }
+
+.cover-title { font-weight: 700; letter-spacing: -0.022em; line-height: 1.08; }
+.cover-subtitle { color: var(--ink-soft); font-size: 11.5pt; }
+
+.cover-meta dt { color: var(--accent); font-weight: 600; }
+.cover-foot { border-top-color: var(--rule); }
+
+h2 {
+  letter-spacing: -0.012em;
+  border-bottom: none;
+  padding-bottom: 0;
+  position: relative;
+  padding-left: 0;
+}
+/* Accent bar instead of a full rule -- lighter, more contemporary. */
+h2::after {
+  content: "";
+  display: block;
+  width: 16mm;
+  height: 2.5pt;
+  background: var(--accent);
+  margin-top: 2mm;
+}
+
+.finding {
+  border-bottom: none;
+  background: var(--wash);
+  border-radius: var(--radius);
+  padding: 4.5mm 5mm;
+  margin-bottom: 4mm;
+}
+.finding:last-child { padding-bottom: 4.5mm; }
+
+.finding-num {
+  background: var(--accent);
+  color: var(--paper);
+  border-radius: 50%;
+  width: 6mm;
+  height: 6mm;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8.5pt;
+  font-weight: 700;
+  align-self: center;
+}
+
+.implication {
+  background: var(--paper);
+  border-left: 3pt solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.tag { background: var(--paper); border-radius: 4mm; }
+.cite { border-radius: 3mm; font-weight: 600; background: var(--paper); }
+
+.conflict { background: var(--paper); border-width: 1pt; border-radius: var(--radius); }
+.geo-bar { border-radius: 1mm; }
+
+.source { border-bottom-color: var(--rule); }
+.source-id { border-radius: 3mm; }
+.source-tier, .source-prox { border-radius: 3mm; }
+.source-title { font-weight: 600; }

@@ -1,0 +1,54 @@
+/* ACADEMIC -- science, medicine, systematic review, literature.
+   Restrained, serif, citation-forward. Deliberately quiet: the sources are the point. */
+
+:root {
+  --font-body: "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-head: "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-mono: "Consolas", "Courier New", monospace;
+
+  --ink: #1c1a17;
+  --ink-soft: #4d4842;
+  --ink-faint: #8b847b;
+  --rule: #ddd8cf;
+  --rule-strong: #1c1a17;
+  --paper: #ffffff;
+  --wash: #f7f5f1;
+  --accent: #5c4033;
+  --accent-soft: #f2ede5;
+
+  --size-body: 10.4pt;
+  --leading: 1.62;
+  --size-h1: 27pt;
+  --size-h2: 14pt;
+  --radius: 0;
+}
+
+/* Small caps headings read as scholarly without shouting. */
+h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  border-bottom-width: 0.75pt;
+  border-bottom-color: var(--rule-strong);
+}
+
+.cover-title { font-weight: 400; letter-spacing: -0.005em; }
+.cover-rule { height: 0.75pt; }
+.eyebrow { font-variant: small-caps; text-transform: none; letter-spacing: 0.14em; font-weight: 400; }
+
+.finding h3 { font-weight: 400; font-style: italic; }
+.finding-heading { font-style: normal; }
+
+/* Understated implication box -- a margin note, not a callout. */
+.implication {
+  background: transparent;
+  border-left-width: 1pt;
+  padding-left: 4mm;
+  padding-top: 1mm;
+  padding-bottom: 1mm;
+}
+.implication-label { font-variant: small-caps; text-transform: none; letter-spacing: 0.08em; }
+
+.cite { border-radius: 0; font-family: var(--font-mono); }
+.source-title { font-weight: 400; font-style: italic; }
+.source-id { background: var(--ink); }

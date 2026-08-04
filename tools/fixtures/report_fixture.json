@@ -1,0 +1,165 @@
+{
+  "run_id": "FIXTURE-0001-example",
+  "generated_at": "2026-08-02T15:40:00+00:00",
+  "title": "Heat Pump Subsidy Changes and Their Effect on Retrofit Demand",
+  "topic": "How 2025-2026 changes to Dutch heat pump subsidies (ISDE) affect residential retrofit demand, and what that means for installer capacity planning.",
+  "role": "Operations Director at a 60-person residential HVAC installation company in Utrecht. Deciding whether to hire and train four additional heat pump technicians before the next heating season.",
+  "home_region": "Netherlands",
+  "subject_regions": ["Netherlands", "EU"],
+  "depth": "brief",
+  "theme": "academic",
+  "theme_rationale": "policy-and-evidence topic read by an operator, not a lawyer",
+  "recency": "prefer last 18 months; primary regulatory text may be older",
+  "questions": [
+    "How have ISDE subsidy levels and eligibility changed for 2025-2026?",
+    "What does the evidence say about demand elasticity to subsidy changes?",
+    "Is there a credible forecast for installer demand through the next heating season?",
+    "Where do credible sources genuinely disagree?"
+  ],
+
+  "executive_summary": "Subsidy levels for residential heat pumps in the Netherlands have moved, but the more consequential change for installer capacity is the shift in eligibility timing rather than the headline amount. The evidence base on demand elasticity is thinner than the confident public commentary suggests, and it is drawn largely from periods with different interest rates.\n\nFor a 60-person installer in Utrecht, the defensible read is that demand is likely to hold or rise modestly through the next heating season, but the uncertainty band is wide enough that hiring four technicians on a permanent basis carries real risk. A staged approach with two hires plus subcontract capacity fits the evidence better than a single four-person commitment.\n\nThis fixture demonstrates the report structure. The content is illustrative and should not be used for real decisions.",
+
+  "key_findings": [
+    {
+      "heading": "Eligibility timing changed more than the subsidy amount",
+      "body": "The headline per-unit subsidy moved only modestly, but the qualifying window and the documentation requirements shifted in ways that change when households can commit to an installation.\n\nThe practical effect is a compression of demand into a narrower part of the calendar year, which matters far more for staffing than the euro amount does.",
+      "implication_for_role": "Your capacity problem is likely a peak problem, not a volume problem. Four permanent hires smooths a curve that may not need smoothing; flexible capacity that you can concentrate into the compressed window addresses the actual constraint.",
+      "source_ids": ["S1", "S2"],
+      "answers_question": "How have ISDE levels and eligibility changed?",
+      "confidence": "high"
+    },
+    {
+      "heading": "Demand elasticity estimates rest on a narrow evidence base",
+      "body": "The commonly cited elasticity figures trace back to a small number of studies conducted during a period of materially lower borrowing costs. Applying them to the current rate environment assumes households respond to subsidy changes the same way when financing is more expensive.\n\nNone of the sources reviewed tested that assumption directly.",
+      "implication_for_role": "Treat any confident demand forecast you are shown by a supplier or trade body as weaker than it is presented. This is a reason to stage hiring rather than to avoid it.",
+      "source_ids": ["S2", "S3", "S5"],
+      "answers_question": "What does the evidence say about demand elasticity?",
+      "confidence": "moderate"
+    },
+    {
+      "heading": "Installer capacity forecasts exist but are regional and coarse",
+      "body": "National-level workforce projections are available and reasonably well constructed, but they do not resolve to the provincial level. Utrecht-specific figures had to be inferred from housing stock composition rather than read directly.",
+      "implication_for_role": "You will not find a number that answers your question directly. Your own order book over the last six quarters is better evidence for Utrecht than any published national forecast.",
+      "source_ids": ["S4"],
+      "answers_question": "Is there a credible forecast for installer demand?",
+      "confidence": "low"
+    }
+  ],
+
+  "conflicts": [
+    {
+      "claim": "Subsidy reductions cause a proportional near-term drop in installation volume.",
+      "supporting_ids": ["S3"],
+      "contradicting_ids": ["S2", "S5"],
+      "assessment": "The supporting source is a trade association analysis with a clear interest in the subsidy being maintained, and it does not separate the subsidy effect from the concurrent rate rise. The two contradicting sources both control for financing costs and find a much weaker relationship. On methodology, the contradicting position is stronger, though neither side has post-2025 data."
+    }
+  ],
+
+  "coverage_notes": "Two material gaps. First, no Utrecht-provincial installation data was reachable; the provincial statistics portal returned no relevant series and the finding above is inferred from national figures weighted by housing stock. Second, one source named in the brief as must-include, a sector capacity study, sits behind a member paywall and only its abstract was accessible, so it is marked partially accessed and is not the sole support for any finding.\n\nLocal coverage on demand elasticity specifically is thin. The two strongest elasticity sources are EU-level rather than Dutch, and are labelled regional in the appendix accordingly. Their applicability to the Dutch market is plausible but not demonstrated.\n\nThe fourth brief question, on where sources disagree, is answered in the conflicts section but on one axis only. The evidence base was not broad enough to surface disagreements on installer capacity.",
+
+  "excluded_sources": [
+    {
+      "url": "https://example-vendor.test/heat-pump-market-2026",
+      "title": "Heat Pump Market Outlook 2026 (manufacturer)",
+      "reason": "Manufacturer marketing content with no stated methodology; brief's credibility_rules excluded vendor material where independent sources cover the same ground, and they do here."
+    },
+    {
+      "url": "https://example-news.test/subsidy-shakeup",
+      "title": "Subsidy shake-up leaves homeowners in limbo",
+      "reason": "Secondary reporting that summarizes S1 without adding analysis; the primary source is cited directly instead."
+    }
+  ],
+
+  "sources": [
+    {
+      "id": "S1",
+      "title": "ISDE subsidy scheme: conditions and amounts for 2026",
+      "publisher": "Rijksdienst voor Ondernemend Nederland (RVO)",
+      "url": "https://www.rvo.nl/subsidies-financiering/isde",
+      "author": null,
+      "published_date": "2026-01-15",
+      "accessed_date": "2026-08-02",
+      "tier": "A",
+      "rationale": "Primary regulatory source; the scheme administrator's own published conditions. Satisfies the brief's requirement that regulatory facts come from primary text rather than commentary.",
+      "publisher_jurisdiction": "Netherlands",
+      "subject_regions": ["Netherlands"],
+      "proximity_tier": "local",
+      "caveat": null
+    },
+    {
+      "id": "S2",
+      "title": "Household response to heat pump incentives under varying credit conditions",
+      "publisher": "Energy Policy",
+      "url": "https://example-journal.test/energy-policy/heat-pump-incentives",
+      "author": "Van Dijk, M. and Kowalski, A.",
+      "published_date": "2025-09-01",
+      "accessed_date": "2026-08-02",
+      "tier": "A",
+      "rationale": "Peer-reviewed, methodology and data sources fully stated, and the only reviewed source that separates subsidy effects from financing-cost effects. Directly satisfies the brief's request for evidence rather than assertion.",
+      "publisher_jurisdiction": "Netherlands",
+      "subject_regions": ["EU"],
+      "proximity_tier": "regional",
+      "caveat": null
+    },
+    {
+      "id": "S3",
+      "title": "Impact assessment: proposed changes to residential heating support",
+      "publisher": "Netherlands HVAC Trade Association",
+      "url": "https://example-trade.test/impact-assessment-2026",
+      "author": null,
+      "published_date": "2026-02-20",
+      "accessed_date": "2026-08-02",
+      "tier": "C",
+      "rationale": "Included because it is the position most likely to be quoted at you by suppliers, and understanding its weaknesses is useful. Not used as sole support for any finding.",
+      "publisher_jurisdiction": "Netherlands",
+      "subject_regions": ["Netherlands"],
+      "proximity_tier": "local",
+      "caveat": "The publisher advocates for maintaining the subsidy, and the analysis does not control for concurrent interest rate changes. Treat the headline figure as an advocacy number."
+    },
+    {
+      "id": "S4",
+      "title": "Labour market projections for the built environment transition, 2025-2030",
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "url": "https://www.cbs.nl/example-labour-projections",
+      "author": null,
+      "published_date": "2025-11-04",
+      "accessed_date": "2026-08-02",
+      "tier": "A",
+      "rationale": "National statistical authority, transparent methodology, independent of the sector it measures. The best available answer to the capacity question even though it does not resolve to province level.",
+      "publisher_jurisdiction": "Netherlands",
+      "subject_regions": ["Netherlands"],
+      "proximity_tier": "local",
+      "caveat": "Resolves to national and COROP-region level only; no Utrecht-provincial series."
+    },
+    {
+      "id": "S5",
+      "title": "Heat pump uptake across member states: a comparative review",
+      "publisher": "Joint Research Centre, European Commission",
+      "url": "https://joint-research-centre.ec.europa.eu/example-heat-pump-review",
+      "author": "Fernandes, R. et al.",
+      "published_date": "2025-06-12",
+      "accessed_date": "2026-08-02",
+      "tier": "B",
+      "rationale": "Institutional, methodologically transparent, and independent. Downgraded to B for this brief only because it is EU-comparative rather than Dutch-specific, so its direct applicability to the Utrecht market is inferential.",
+      "publisher_jurisdiction": "EU",
+      "subject_regions": ["EU"],
+      "proximity_tier": "regional",
+      "caveat": null
+    },
+    {
+      "id": "S6",
+      "title": "Sector capacity and skills study 2026",
+      "publisher": "European Heat Pump Association",
+      "url": "https://example-ehpa.test/capacity-study-2026",
+      "author": null,
+      "published_date": "2026-03-01",
+      "accessed_date": "2026-08-02",
+      "tier": "C",
+      "rationale": "Named as must-include in the brief. Only the abstract was reachable, so it is recorded here for completeness rather than used as evidence.",
+      "publisher_jurisdiction": "EU",
+      "subject_regions": ["EU"],
+      "proximity_tier": "regional",
+      "caveat": "Member paywall; abstract only. Not cited by any finding because the substance could not be read."
+    }
+  ]
+}

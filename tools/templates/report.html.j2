@@ -1,0 +1,211 @@
+<meta charset="utf-8">
+<title>{{ report.title or report.topic }}</title>
+<style>{{ base_css }}</style>
+<style>{{ theme_css }}</style>
+
+<article>
+
+  <!-- ============ COVER ============ -->
+  <section class="cover">
+    <div class="cover-top">
+      <div class="eyebrow">Research Report</div>
+      <div class="cover-rule"></div>
+    </div>
+
+    <div class="cover-mid">
+      <h1 class="cover-title">{{ report.title or report.topic }}</h1>
+      {% if report.title and report.topic != report.title %}
+      <p class="cover-subtitle">{{ report.topic }}</p>
+      {% endif %}
+    </div>
+
+    <div class="cover-meta">
+      <dl>
+        <dt>Prepared for</dt><dd>{{ report.role }}</dd>
+        <dt>Primary region</dt><dd>{{ report.home_region }}</dd>
+        {% if report.subject_regions %}
+        <dt>Subject regions</dt><dd>{{ report.subject_regions | join(', ') }}</dd>
+        {% endif %}
+        {% if report.recency %}
+        <dt>Recency window</dt><dd>{{ report.recency }}</dd>
+        {% endif %}
+        <dt>Sources</dt>
+        <dd>{{ report.sources | length }}
+          <span class="tier-inline">({{ tier_counts.A }} tier A &middot; {{ tier_counts.B }} tier B &middot; {{ tier_counts.C }} tier C)</span>
+        </dd>
+        <dt>Date</dt><dd>{{ generated_display }}</dd>
+      </dl>
+    </div>
+
+    <div class="cover-foot">
+      <span class="run-id">{{ report.run_id }}</span>
+    </div>
+  </section>
+
+  <!-- ============ QUESTIONS ============ -->
+  {% if report.questions %}
+  <section class="block questions-block">
+    <h2>Questions this report addresses</h2>
+    <ol class="questions">
+      {% for q in report.questions %}<li>{{ q }}</li>{% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
+  <!-- ============ EXECUTIVE SUMMARY ============ -->
+  <section class="block">
+    <h2>Executive summary</h2>
+    <div class="lede">{{ report.executive_summary | paragraphs }}</div>
+  </section>
+
+  <!-- ============ KEY FINDINGS ============ -->
+  <section class="block">
+    <h2>Key findings</h2>
+
+    {% for f in report.key_findings %}
+    <div class="finding">
+      <h3>
+        <span class="finding-num">{{ loop.index }}</span>
+        <span class="finding-heading">{{ f.heading }}</span>
+      </h3>
+
+      {% if f.answers_question or f.confidence %}
+      <div class="finding-tags">
+        {% if f.answers_question %}<span class="tag tag-q">{{ f.answers_question }}</span>{% endif %}
+        {% if f.confidence %}<span class="tag tag-c tag-c-{{ f.confidence }}">{{ f.confidence }} confidence</span>{% endif %}
+      </div>
+      {% endif %}
+
+      <div class="finding-body">{{ f.body | paragraphs }}</div>
+
+      <div class="implication">
+        <div class="implication-label">What this means for you</div>
+        <div class="implication-body">{{ f.implication_for_role | paragraphs }}</div>
+      </div>
+
+      <div class="cites">
+        {% for sid in f.source_ids %}<a class="cite" href="#src-{{ sid }}">{{ sid }}</a>{% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <!-- ============ CONFLICTS ============ -->
+  {% if report.conflicts %}
+  <section class="block">
+    <h2>Where the evidence disagrees</h2>
+    {% for c in report.conflicts %}
+    <div class="conflict">
+      <h3 class="conflict-claim">{{ c.claim }}</h3>
+      <div class="conflict-sides">
+        <div class="side side-for">
+          <div class="side-label">Supporting</div>
+          <div class="side-cites">
+            {% for sid in c.supporting_ids %}<a class="cite" href="#src-{{ sid }}">{{ sid }}</a>{% else %}<span class="none">&mdash;</span>{% endfor %}
+          </div>
+        </div>
+        <div class="side side-against">
+          <div class="side-label">Contradicting</div>
+          <div class="side-cites">
+            {% for sid in c.contradicting_ids %}<a class="cite" href="#src-{{ sid }}">{{ sid }}</a>{% else %}<span class="none">&mdash;</span>{% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="assessment">
+        <span class="assessment-label">Assessment</span>
+        {{ c.assessment | paragraphs }}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- ============ COVERAGE NOTES ============ -->
+  <section class="block">
+    <h2>Coverage and limitations</h2>
+    <div class="coverage">{{ report.coverage_notes | paragraphs }}</div>
+
+    {% if geo_counts %}
+    <div class="geo-summary">
+      <div class="geo-summary-label">Source proximity to {{ report.home_region }}</div>
+      <div class="geo-bars">
+        {% for tier, n in geo_counts %}
+        <div class="geo-bar-row">
+          <span class="geo-tier">{{ tier }}</span>
+          <span class="geo-bar" style="width: {{ (n / geo_max * 60) | round(1) }}mm"></span>
+          <span class="geo-n">{{ n }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </section>
+
+  <!-- ============ SOURCE APPENDIX ============ -->
+  <section class="block appendix">
+    <h2>Source appendix</h2>
+    <p class="appendix-note">
+      Every source below was assessed against the credibility guidelines set in the brief for
+      this task. Tier A is primary or authoritative; tier B is credible but secondary or
+      partial; tier C is context only and never the sole support for a finding.
+    </p>
+
+    {% for s in report.sources %}
+    <div class="source" id="src-{{ s.id }}">
+      <div class="source-head">
+        <span class="source-id">{{ s.id }}</span>
+        <span class="source-tier tier-{{ s.tier }}">Tier {{ s.tier }}</span>
+        <span class="source-prox prox-{{ s.proximity_tier }}">{{ s.proximity_tier }}</span>
+      </div>
+
+      <div class="source-title">{{ s.title }}</div>
+
+      <div class="source-line">
+        <span class="source-publisher">{{ s.publisher }}</span>
+        {% if s.author %}<span class="sep">&middot;</span><span>{{ s.author }}</span>{% endif %}
+        {% if s.published_date %}<span class="sep">&middot;</span><span>{{ s.published_date }}</span>{% endif %}
+        <span class="sep">&middot;</span><span class="jurisdiction">{{ s.publisher_jurisdiction }}</span>
+        {% if s.subject_regions and s.subject_regions != [s.publisher_jurisdiction] %}<span class="sep">&middot;</span><span>on {{ s.subject_regions | join(', ') }}</span>{% endif %}
+      </div>
+
+      <div class="source-url">{{ s.url }}</div>
+
+      <div class="source-rationale"><strong>Why included:</strong> {{ s.rationale }}</div>
+
+      {% if s.caveat %}
+      <div class="source-caveat"><strong>Caveat:</strong> {{ s.caveat }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    {% if report.excluded_sources %}
+    <h3 class="excluded-head">Candidates excluded during vetting</h3>
+    <table class="excluded">
+      <thead><tr><th>Source</th><th>Reason for exclusion</th></tr></thead>
+      <tbody>
+        {% for e in report.excluded_sources %}
+        <tr>
+          <td>{{ e.title or e.url }}</td>
+          <td>{{ e.reason }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </section>
+
+  <!-- ============ COLOPHON ============ -->
+  <section class="block colophon">
+    <p>
+      Generated {{ generated_display }} &middot; run <code>{{ report.run_id }}</code> &middot;
+      {{ report.depth }} depth &middot; {{ report.theme }} theme{% if report.theme_rationale %}
+      ({{ report.theme_rationale }}){% endif %}.
+    </p>
+    <p>
+      Sources were selected and assessed by an AI research assistant following the
+      guidelines set in the brief for this task. Findings are summarized, not verified
+      independently &mdash; check the cited sources before acting on anything consequential.
+    </p>
+  </section>
+
+</article>
