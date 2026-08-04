@@ -13,12 +13,19 @@ Nothing topic-specific is hardcoded in a tool. If you find yourself wanting to a
 
 ## Required inputs
 
-A filled `workflows/brief_template.md` copy, typically at `.tmp/brief.md`.
-Required fields: `topic`, `role`, `home_region`. Everything else has a default.
+A confirmed brief at `.tmp/<run_id>/brief.md`, carrying the eleven fields defined in
+`workflows/brief_template.md`. Required fields: `topic`, `role`, `home_region`. Everything
+else has a default.
 
-**Before starting, check the brief for contradictions** — e.g. `credibility_rules` says
-peer-reviewed only but `must_include` names a vendor whitepaper. Raise it with the user
-rather than silently resolving it.
+**Two ways to get one:**
+
+1. **Interview (default).** The user names a topic; you run `workflows/intake_interview.md`,
+   which asks what it must, proposes the rest, and writes the confirmed brief. Contradiction
+   checking happens there, on your draft, before the user ever sees it.
+2. **Hand-filled.** The user gives you a filled-in `brief_template.md` copy, typically at
+   `.tmp/brief.md`. **Check it for contradictions before starting** — e.g.
+   `credibility_rules` says peer-reviewed only but `must_include` names a vendor whitepaper.
+   Raise it with the user rather than silently resolving it.
 
 ## Layer discipline (from CLAUDE.md)
 
@@ -38,6 +45,8 @@ discovery or fetching because rendering failed.**
 
 ```
 brief.md ──▶ [1 Discover]   ──▶ candidates.json    (you)
+   ▲
+   └── interview (workflows/intake_interview.md) or hand-filled
              [2 Fetch]      ──▶ fetched/*.json     (tools/fetch_sources.py)
              [3 Vet]        ──▶ vetted.json        (you)
              [4 Synthesize] ──▶ report.json        (you)
@@ -45,6 +54,12 @@ brief.md ──▶ [1 Discover]   ──▶ candidates.json    (you)
 ```
 
 ### Stage 0 — Set up the run
+
+**If the brief came from the interview**, this stage is already done — `intake_interview.md`
+minted the `run_id`, created `.tmp/<run_id>/`, wrote the brief there, and got the user's
+confirmation at its own gate. Go to Stage 1.
+
+**If the user hand-filled a brief:**
 
 1. Read the brief. Parse the YAML block.
 2. Mint `run_id`. Create `.tmp/<run_id>/`.
